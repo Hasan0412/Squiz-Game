@@ -111,28 +111,7 @@ img {
   .float-right {
     float: right;
   }
-  
-  #password {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: none;
-    display: block;
-    width: 100%;
-    padding-top: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 85px;
-    font-size: 1.2rem;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: 2px dashed #c0c7cf;
-    border-radius: 6px;
-    resize: none;
-    overflow: hidden;
-  }
-  
+
   @media (max-width: 690px) {
     .btn {
       font-size: 1rem;
