@@ -62,3 +62,4 @@ const quizQuestions = [
 let questionIndex = 0;
 let score = 100;
 let timer = 60;
+
