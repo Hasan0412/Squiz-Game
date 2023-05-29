@@ -1,5 +1,6 @@
-var startBtn = document.querySelector("#start");
+const quizContainer = document.getElementById('quiz-container');
+const questionEl = document.getElementById('question');
+const choicesEl = document.getElementById('choices');
+const submitButton = document.getElementById('submit-btn');
+const timerEl = document.getElementById('timer');
 
-function openNewPage() {
-    window.location.href="game.html";
-  }
