@@ -3,6 +3,7 @@ const questionEl = document.getElementById('question');
 const choicesEl = document.getElementById('choices');
 const submitButton = document.getElementById('submit-btn');
 const timerEl = document.getElementById('timer');
+const scoreEl = document.getElementById('score');
 
 const quizQuestions = [
   {
@@ -58,3 +59,6 @@ const quizQuestions = [
 
 ];
 
+let questionIndex = 0;
+let score = 100;
+let timer = 60;
