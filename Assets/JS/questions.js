@@ -1,4 +1,4 @@
-const quiz = [
+const quizQuestions = [
     {
       question: "Who is the fastest man ever?",
       choices: ["Asafa Powell", "Usain Bolt", "Justin Gatlin", "Tyson Gay"],
@@ -50,4 +50,6 @@ const quiz = [
       answer: "The Conservative Party"
     },
 
-  ]
+  ];
+
+  
