@@ -1,11 +1,11 @@
-const quizContainer = document.getElementById('quiz-container');
-const questionEl = document.getElementById('question');
-const choicesEl = document.getElementById('choices');
-const submitButton = document.getElementById('submit-btn');
-const timerEl = document.getElementById('timer');
-const scoreEl = document.getElementById('score');
+var quizContainer = document.getElementById('quiz-container');
+var questionEl = document.getElementById('question');
+var choicesEl = document.getElementById('choices');
+var submitButton = document.getElementById('submit-btn');
+var timerEl = document.getElementById('timer');
+var scoreEl = document.getElementById('score');
 
-const quizQuestions = [
+var quizQuestions = [
   {
     question: "Who is the fastest man ever?",
     choices: ["Asafa Powell", "Usain Bolt", "Justin Gatlin", "Tyson Gay"],
@@ -59,7 +59,33 @@ const quizQuestions = [
 
 ];
 
-let questionIndex = 0;
-let score = 100;
-let timer = 60;
+var questionIndex = 0;
+var score = 100;
+var timer = 60;
 
+function startTimer() {
+  const intervalID = setInterval(function() {
+    timer--;
+    timerEl.textContent = timer;
+
+    if (timer <= 0) {
+      clearInterval(intervalID);
+      showQuizResults();
+    }
+  }, 1000);
+}
+
+function displayQuestion() {
+  const currentQuestion = quizQuestions[questionIndex];
+  questionEl.textContent = currentQuestion.question;
+
+  choicesEl.innerHTML = '';
+  currentQuestion.choices.forEach(function(choice) {
+    var li = document.createElement('li');
+    li.textContent = choice;
+    li.addEventListener('click', function(event) {
+      handleChoiceSelection(event);
+    });
+    choicesEl.appendChild(li);
+  });
+}
