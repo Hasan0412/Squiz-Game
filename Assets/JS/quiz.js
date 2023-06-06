@@ -89,3 +89,29 @@ function displayQuestion() {
     choicesEl.appendChild(li);
   });
 }
+
+function handleChoiceSelection(event) {
+  var selectedChoice = event.target.textContent;
+  var currentQuestion = quizQuestions[questionIndex];
+
+  if (selectedChoice === currentQuestion.rightAnswer) {
+    event.target.style.color = 'green';
+    score += 5;
+  } else {
+    event.target.style.color = 'red';
+    score -= 5;
+  }
+
+  scoreEl.textContent = "Score: " + score;
+
+  questionIndex++;
+  setTimeout(displayNextQuestion, 1000);
+}
+
+function displayNextQuestion() {
+  if (questionIndex < quizQuestions.length) {
+    displayQuestion();
+  } else {
+    showQuizResults();
+  }
+}
