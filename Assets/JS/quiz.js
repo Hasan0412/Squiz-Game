@@ -37,7 +37,7 @@ var quizQuestions = [
     answer: "Rishi Sunak"  
   },
   {
-    question: "How many NBA Chamionships have the Boston Celtics won?",
+    question: "How many NBA Championships have the Boston Celtics won?",
     choices: ["7", "8", "17", "18"],
     answer: "17"  
   },
@@ -55,8 +55,7 @@ var quizQuestions = [
     question: "Which political party is currently in government in the UK?",
     choices: ["The Labour Party", "The Democrats", "The Republicans", "The Conservative Party"],
     answer: "The Conservative Party"
-  },
-
+  }
 ];
 
 var questionIndex = 0;
@@ -64,7 +63,7 @@ var score = 100;
 var timer = 60;
 
 function startTimer() {
-  const intervalID = setInterval(function() {
+  var intervalID = setInterval(function() {
     timer--;
     timerEl.textContent = timer;
 
@@ -76,7 +75,7 @@ function startTimer() {
 }
 
 function displayQuestion() {
-  const currentQuestion = quizQuestions[questionIndex];
+  var currentQuestion = quizQuestions[questionIndex];
   questionEl.textContent = currentQuestion.question;
 
   choicesEl.innerHTML = '';
@@ -94,7 +93,7 @@ function handleChoiceSelection(event) {
   var selectedChoice = event.target.textContent;
   var currentQuestion = quizQuestions[questionIndex];
 
-  if (selectedChoice === currentQuestion.rightAnswer) {
+  if (selectedChoice === currentQuestion.answer) {
     event.target.style.color = 'green';
     score += 5;
   } else {
