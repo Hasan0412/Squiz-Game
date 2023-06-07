@@ -104,7 +104,7 @@ function handleChoiceSelection(event) {
   scoreEl.textContent = "Score: " + score;
 
   questionIndex++;
-  setTimeout(displayNextQuestion, 1000);
+  setTimeout(displayNextQuestion, 500);
 }
 
 function displayNextQuestion() {
