@@ -119,6 +119,10 @@ function showQuizResults() {
   quizContainer.innerHTML = "<h1>Quiz Complete!</h1><p>You have finished the quiz.</p><p>Your final score is: " + score + "</p>";
 }
 
+function openNewPage() {
+  window.location.href = "game.html";
+}
+
 startTimer();
 displayQuestion();
 
