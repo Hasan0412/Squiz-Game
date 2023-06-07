@@ -61,6 +61,7 @@ var quizQuestions = [
 var questionIndex = 0;
 var score = 100;
 var timer = 60;
+var unansweredQuestions = 0;
 
 function startTimer() {
   var intervalID = setInterval(function() {
@@ -69,7 +70,12 @@ function startTimer() {
 
     if (timer <= 0) {
       clearInterval(intervalID);
+      if (unansweredQuestions > 0) {
+        score -= unansweredQuestions * 5;
+        showUnansweredMessage();
+      } else {
       showQuizResults();
+      }
     }
   }, 1000);
 }
@@ -104,6 +110,7 @@ function handleChoiceSelection(event) {
   scoreEl.textContent = "Score: " + score;
 
   questionIndex++;
+  unansweredQuestions = quizQuestions.length - questionIndex;
   setTimeout(displayNextQuestion, 500);
 }
 
@@ -117,6 +124,10 @@ function displayNextQuestion() {
 
 function showQuizResults() {
   quizContainer.innerHTML = "<h1>Quiz Complete!</h1><p>You have finished the quiz.</p><p>Your final score is: " + score + "</p>";
+}
+
+function showUnansweredMessage() {
+  quizContainer.innerHTML = "<h1>Time's up!</h1><p>You have unanswered questions. You will lose " + (unansweredQuestions * 5) + " points.</p><p>Your final score is: " + score + "</p>";
 }
 
 function openNewPage() {
