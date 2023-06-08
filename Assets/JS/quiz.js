@@ -4,6 +4,9 @@ var choicesEl = document.getElementById('choices');
 var submitButton = document.getElementById('submit-btn');
 var timerEl = document.getElementById('timer');
 var scoreEl = document.getElementById('score');
+var initialsInput = document.getElementById('initials-input');
+var saveButton = document.getElementById('save-btn');
+var playAgainButton = document.getElementById('play-again-btn');
 
 var quizQuestions = [
   {
@@ -62,6 +65,7 @@ var questionIndex = 0;
 var score = 100;
 var timer = 60;
 var unansweredQuestions = 0;
+var playerInitials = '';
 
 function startTimer() {
   var intervalID = setInterval(function() {
@@ -105,9 +109,11 @@ function handleChoiceSelection(event) {
   } else {
     event.target.style.color = 'red';
     score -= 5;
+    timer -= 5;
   }
 
   scoreEl.textContent = "Score: " + score;
+  timerEl.textContent = timer;
 
   questionIndex++;
   unansweredQuestions = quizQuestions.length - questionIndex;
@@ -123,7 +129,29 @@ function displayNextQuestion() {
 }
 
 function showQuizResults() {
-  quizContainer.innerHTML = "<h1>Quiz Complete!</h1><p>You have finished the quiz.</p><p>Your final score is: " + score + "</p>";
+  var resultHTML = "<h1>Quiz Complete!</h1><p>You have finished the quiz.</p><p>Your final score is: " + score + "</p>";
+  resultHTML += "<label>Enter your initials:</label> <input type='text' id='initials-input'><button id='save-btn'>Save Score</button><button id='play-again-btn'>Play Again</button>";
+  quizContainer.innerHTML = resultHtml;
+  initialsInput = document.getElementById('initials-input');
+  saveButton = document.getElementById('save-btn');
+  playAgainButton = document.getElementById('play-again-btn');
+  saveButton.addEventListener('click', saveScore);
+  playAgainButton.addEventListener('click', playAgain);
+}
+
+function saveScore() {
+  playerInitials = initialsInput.value;
+  var scores = localStorage.getItem('scores');
+  var scoreData = [];
+
+  if (scores) {
+    scoreData = JSON.parse(scores);
+  }
+
+  scoreData.push({ initials: playerInitials, score: score });
+  localStorage.setItem('scores', JSON.stringify(scoreData));
+  console.log("Score saved! Initials: " + playerInitials + ", Score: " + score);
+  initialsInput.value = '';
 }
 
 function showUnansweredMessage() {
