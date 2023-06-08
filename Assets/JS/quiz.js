@@ -154,6 +154,16 @@ function saveScore() {
   initialsInput.value = '';
 }
 
+function playAgain() {
+  questionIndex = 0;
+  score = 100;
+  timer = 60;
+  unansweredQuestions = 0;
+  playerInitials = '';
+  startTimer();
+  displayQuestion();
+}
+
 function showUnansweredMessage() {
   quizContainer.innerHTML = "<h1>Time's up!</h1><p>You have unanswered questions. You will lose " + (unansweredQuestions * 5) + " points.</p><p>Your final score is: " + score + "</p>";
 }
