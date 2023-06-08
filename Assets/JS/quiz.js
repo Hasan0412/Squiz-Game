@@ -66,9 +66,10 @@ var score = 100;
 var timer = 60;
 var unansweredQuestions = 0;
 var playerInitials = '';
+var intervalID;
 
 function startTimer() {
-  var intervalID = setInterval(function() {
+  intervalID = setInterval(function() {
     timer--;
     timerEl.textContent = timer;
 
@@ -78,7 +79,7 @@ function startTimer() {
         score -= unansweredQuestions * 5;
         showUnansweredMessage();
       } else {
-      showQuizResults();
+        showQuizResults();
       }
     }
   }, 1000);
@@ -124,6 +125,7 @@ function displayNextQuestion() {
   if (questionIndex < quizQuestions.length) {
     displayQuestion();
   } else {
+    clearInterval(intervalID);
     showQuizResults();
   }
 }
@@ -131,7 +133,7 @@ function displayNextQuestion() {
 function showQuizResults() {
   var resultHTML = "<h1>Quiz Complete!</h1><p>You have finished the quiz.</p><p>Your final score is: " + score + "</p>";
   resultHTML += "<label>Enter your initials:</label> <input type='text' id='initials-input'><button id='save-btn'>Save Score</button><button id='play-again-btn'>Play Again</button>";
-  quizContainer.innerHTML = resultHtml;
+  quizContainer.innerHTML = resultHTML;
   initialsInput = document.getElementById('initials-input');
   saveButton = document.getElementById('save-btn');
   playAgainButton = document.getElementById('play-again-btn');
