@@ -191,7 +191,7 @@ function showUnansweredMessage() {
 }
 
 function openNewPage() {
-  window.location.href = "game.html";
+  window.location.href = "../../game.html";
 }
 
 startTimer();
