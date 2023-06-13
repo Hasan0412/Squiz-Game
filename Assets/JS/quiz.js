@@ -154,6 +154,26 @@ function saveScore() {
   localStorage.setItem('scores', JSON.stringify(scoreData));
   console.log("Score saved! Initials: " + playerInitials + ", Score: " + score);
   initialsInput.value = '';
+
+  displaySavedScores();
+}
+
+function displaySavedScores() {
+  var scores = localStorage.getItem('scores');
+  var scoreData = [];
+
+  if (scores) {
+    scoreData = JSON.parse(scores);
+  }
+
+  var savedScoresList = document.getElementById('saved-scores');
+  savedScoresList.innerHTML = '';
+
+  scoreData.forEach(function(data) {
+    var listItem = document.createElement('li');
+    listItem.textContent = data.initials + ": " + data.score;
+    savedScoresList.appendChild(listItem);
+  });
 }
 
 function playAgain() {
