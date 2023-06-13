@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
-    <link rel="stylesheet" href="/Assets/CSS/game.css" />
+    <link rel="stylesheet" href="/Assets/CSS/game.css">
+    <style>
+      body {
+        font-family: sans-serif;
+        background-color: #f9fbfd;
+      }
+  
+      .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+  
+      #saved-scores {
+        background-color: #ffffff;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
+        padding: 30px;
+        max-width: 500px;
+      }
+    </style>
 </head>
 <body>
     <div id="quiz-container">
@@ -17,7 +37,9 @@
         <div id="score">Score: 100 Points</div>
     </div>
 
-    <div id="saved-scores"></div>
+    <div class="center-container">
+        <div id="saved-scores"></div>
+    </div>
 
     <script src="/Assets/JS/quiz.js"></script>
 </body>

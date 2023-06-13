@@ -35,7 +35,7 @@ var quizQuestions = [
     answer: "2008"  
   },
   {
-    question: "Who is the Prime Minister of the UK?",
+    question: "Who is the current Prime Minister of the UK?",
     choices: ["Rishi Sunak", "Boris Johnson", "David Cameron", "Tony Blair"],
     answer: "Rishi Sunak"  
   },
