@@ -191,7 +191,7 @@ function showUnansweredMessage() {
 }
 
 function openNewPage() {
-  window.location.href = "../../game.html";
+  window.location.href = "https://hasan0412.github.io/Squiz-Game/game.html";
 }
 
 startTimer();
